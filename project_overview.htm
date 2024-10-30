@@ -1,0 +1,164 @@
+<html>
+<body style="background-color:9999FF;">
+
+<hr />
+<hr />
+<h1><a name="top">Dino Run (Google Chrome's No Internet Game)</a></h1>
+<hr />
+<hr />
+<br/><br/>
+<br/><br/>
+
+<p><a href="#b_f"><p style="font-size:110%">A Brief Description</p></a></p>
+<a href="#r_e"><p style="font-size:110%">Required Equipments</p></a>
+<a href="#h_w"><p style="font-size:110%">How it works?</p></a>
+<a href="#b_d"><p style="font-size:110%">Block Diagram</p></a>
+<a href="#a_g"><p style="font-size:110%">Algorithm</p></a>
+<a href="#p_d"><p style="font-size:110%">Detailed Pin Diagram</p></a>
+<a href="#p_f"><p style="font-size:110%">Problems Faced</p></a>
+<a href="#p_g"><p style="font-size:110%">Group Members Information</p></a>
+<a href="#p_h"><p style="font-size:110%">Course Teacher</p></a>
+
+
+<br/><br/>
+<br/><br/>
+<hr />
+<h2><a name="b_f">A Brief Description</a></h2>
+<hr />
+<p style="font-size:120%">
+In this Project we have implemented Google Chrome's offline game, well known as Dinosaur game using ATMega-32. The game is displayed on 8x16 LED matrix and played with joystick and sound sensor. <br/><br/>
+We have added an extra feature that our Dino can shoot the obstacles.
+</p>
+<br/><br/>
+<br/><br/>
+
+
+<hr />
+<h2><a name="r_e">Required Equipments</a></h2>
+<hr />
+<p style="font-size:120%">
+<ul>
+  <li><p style="font-size:120%">ATmega32 microcontroller</p></li>
+  <li><p style="font-size:120%">LED matrix and 3x8, 4x16 Demultiplexer for muxing them</p></li>
+    <li><p style="font-size:110%">5V Power Supply</p></li>
+    <li><p style="font-size:110%">Joystick</p></li>
+    <li><p style="font-size:110%">Sound sensor</p></li>
+    <li><p style="font-size:110%">Lcd module</p></li>
+    <li><p style="font-size:110%">Some other gates</p></li>
+    
+</ul>
+</p>
+<br/><br/>
+<br/><br/>
+
+
+<hr />
+<h2><a name="h_w">How it works?</a></h2>
+<hr />
+<p style="font-size:120%">
+In this project ATmega32 microcontroller is used for interfacing to various hardware peripherals. A 8x16 LED display is made by multiplexing two 8x8 bicolor LED matrix. For shorting the rows of the two matrices, we have used a 3x8 decoder and for column-select, we have used 4x16 demultiplexer. For choosing the color, another 4x16 demultiplexer has been used. <br/><br/> 
+For taking the input from user, a joystick and a sound sensor have been intrefaced with the microcontroller. When the joystick is moved right, the resistance increases over a certain value and our dino jumps. Our dino can duck in the same way when the resistance goes below a certain value.<br/><br/>
+Dino can shoot an obstacle based on the amplitude of the sound taken by the sound sensor.<br/><br/>
+Finally the score is displayed in a 16x2 Lcd module.
+
+</p>
+<br/><br/>
+<br/><br/>
+
+
+<hr />
+<h2><a name="b_d">Block Diagram</a></h2>
+<hr />
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="block_d.png" alt="pin diagram" align="top" width="720" height="500" />
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fig.1 Block Diagram
+</p>
+<br/><br/>
+<br/><br/>
+
+<hr />
+<h2><a name="a_g">Algorithm</a></h2>
+<hr />
+<br/><br/>
+<p style="font-size:120%">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.Start<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.Obstacle starts coming.<br/> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.If joystick is moved right, dino jumps.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.Else if joystick is moved left, dino ducks.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.If the dino and the obstacle collides, go to (11).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.Else increase score.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.Take input from the sound sensor and compare. If amplitude > 15000 then shoot the bird.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.If the dino and the bird collides, go to (11).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9.Else increase score.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.Go to (2).<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.Game over.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12.Show score on Lcd display.<br/>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13.End<br/>
+</p>
+     
+
+<br/><br/>
+<br/><br/>
+
+<hr />
+<h2><a name="p_d">Detailed Pin Diagram</a></h2>
+<hr />
+<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="pin_d.png" alt="pin diagram" align="top" width="720" height="720" />
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fig.2 Pin Diagram(Joystick and sensor details omitted)
+</body>
+</html>
+
+<br/><br/>
+<br/><br/>
+
+
+<hr />
+<h2><a name="p_f">Problems Faced</a></h2>
+<hr />
+
+<ol>
+  <li><p style="font-size:120%">The most diffiult problem we had to solve is to manage the data received through the sound sensor. It receives a lot of data in a very short interval and the value was fluctuating. It was difficult to sort out only the necessary attributes in a very short time.</p></li>
+
+    
+  <li><p style="font-size:120%">The resistance caused by the movement of the joystick had been changed after few trials. So we had to change our threshold resistance in our code.</p></li>
+    
+  <li><p style="font-size:120%">We faced problems with the ADC input. While taking multiple inputs from ADC, one channel influenced the inputs of other channels.</p></li>
+
+</ol>
+</p>
+<br/><br/>
+<br/><br/>
+
+<hr />
+<h2><a name="p_g">Group Members Information</a></h2>
+<hr />
+<h3><p style="font-size:120%">Section A1: Group 10</p></h3>
+<ul>
+  <li><p style="font-size:120%">Nazia Afreen (1605015)</p></li>
+  <li><p style="font-size:120%">Sudipa Saha (1605014)</p></li>
+  <li><p style="font-size:120%">Sutapa Dey Tithi (1605025)</p></li>
+</ul>
+<br/><br/>
+<br/><br/>
+
+<hr />
+<h2><a name="p_h">Course Teachers</a></h2>
+<hr />
+<ol>
+  <li><p style="font-size:120%">Md. Tareq Mahmood<br/><br/>
+Lecturer, CSE, BUET</p></li>
+  <li><p style="font-size:120%">Masum Musfiq<br/><br/>
+Lecturer, CSE, BUET</p></li>
+</ol>
+
+<br/><br/>
+<br/><br/>
+
+<a href="#top"><p style="font-size:110%">Back to top</p></a>
